@@ -38,8 +38,10 @@ def calculate_result_by_input_folder(file_name, input_directory):
         logging.info(str(directory_handler.Database_File_Path))
         file_path = directory_handler.Database_File_Path
     else:
+        print(input_directory)
         file_read = open(input_directory, 'r')
         for line in file_read.readlines():
+            line = line.strip('\n')
             file_path.append(line)
         file_read.close()
 
@@ -50,7 +52,7 @@ def calculate_result_by_input_folder(file_name, input_directory):
             db = DatabaseHandler(db_file)
             for _data in db.Function_Status:
                 file_object.write(str(_data) + ',')
-        file_object.write('\r\n')
+            file_object.write('\n')
     except Exception as e:
         logging.error(str(e))
     finally:

@@ -1,4 +1,4 @@
-#!coding=utf8
+# -*- coding:utf-8 -*-
 import logging
 import os
 
@@ -29,7 +29,9 @@ class DirectoryHandler:
 
     def save_to_file(self):
         file_object = open(r'./target_directory.ini', 'w')
-        for _path in self.Database_File_Path:
+        sample_list = self.Database_File_Path.copy()
+        sample_list = [line+'\n' for line in sample_list]
+        for _path in sample_list:
             file_object.writelines(str(_path))
         file_object.close()
 
@@ -73,5 +75,5 @@ if __name__ == '__main__':
     console.setFormatter(formatter)
     logging.getLogger('').addHandler(console)
 
-    a = DirectoryHandler(r"./data", "report.db")
+    a = DirectoryHandler("Z:\\", "report.db")
 

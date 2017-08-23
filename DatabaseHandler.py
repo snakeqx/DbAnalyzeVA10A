@@ -16,15 +16,15 @@ class DatabaseHandler:
     4. If <content> is found, extract the content.
     5. convert the <content> with base64 decode and save to a xml file
     """
-    Database_Name = 'report.db'
-    System_SerialNo = ""
-    Function_Status = []
 
     def __init__(self, file_name, output_path=r'./'):
         """
         :param file_name: database file name for analyze
         :param output_path: the path of output xml files. default as ./
         """
+        self.Database_Name = 'report.db'
+        self.System_SerialNo = ""
+        self.Function_Status = []
         # deal with input database file
         if os.path.isfile(file_name):
             self.Database_Name = file_name
@@ -92,7 +92,7 @@ class DatabaseHandler:
                 return
             find_string = r'System SerialNumber="'
             find_index = str(result).find(find_string)
-            system_serial_no = str(result)[find_index+len(find_string):find_index+len(find_string)+6]
+            system_serial_no = str(result)[find_index + len(find_string):find_index + len(find_string) + 6]
             logging.info(system_serial_no)
             return system_serial_no
         except sqlite3.Error as e:

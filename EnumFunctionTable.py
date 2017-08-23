@@ -64,6 +64,7 @@ StringFunctionTables = [
     # "Qua_DoseProfile_IEC",
     # "Adj_FAD_Check",
     # "Tbg_AirCal_CusCalib_BascalOnly",
+    "Tst_BAT_Factory",
 ]
 
 StringResultTable = [
